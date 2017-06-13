@@ -1,0 +1,24 @@
+<div class="main-wrapper about-us-wrapper leadership-team-wrapper container-fluid">
+    <section *ngIf="page" class="banner-wrapper row" [style.background-image]="'url(' + page.better_featured_image.media_details.sizes.large.source_url + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.title.rendered'></h2>
+        </div>
+    </section>
+    <app-sub-nav></app-sub-nav>
+    <section class="container leaders-wrapper" *ngIf="team">
+        <div class="row">
+            <div class="col-sm-12 person-wrapper" *ngFor="let t of team">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 person-photo">
+                        <img [attr.src]='t.acf.member_image' alt="" *ngIf="t.acf.member_image"/>
+                    </div>
+                    <div class="col-md-9 col-sm-8 person-details">
+                        <h3 [innerHTML]='t.acf.member_name'></h3>
+                        <h5 [innerHTML]='t.acf.member_designation'></h5>
+                        <div [innerHTML]='t.acf.member_summary'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

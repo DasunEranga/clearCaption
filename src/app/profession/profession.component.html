@@ -1,0 +1,26 @@
+<div class="main-wrapper container-fluid professional-wrapper" *ngIf="page">
+
+    <section class="banner-wrapper row" [style.background-image]="'url(' + page.acf.professional_banner_background + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.acf.professional_banner_title'></h2>
+            <div class="btn-wrapper">
+                <a href="{{page.acf.professional_banner_button_url}}" [innerHTML]='page.acf.professional_banner_button_text'></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid professionals-items-wrapper">
+        <div class="row item-wrapper" *ngFor="let i of page.acf.professionals_main_content" [style.background-image]="'url(' + i.raw_image + ')'">
+            <div class="container">
+                <div class="row">
+                    <div class="content col-md-6">
+                        <h3 [innerHTML]='i.raw_title'></h3>
+                        <div [innerHTML]='i.raw_content'>
+                        </div>
+                        <a class="btn" [innerHTML]='i.button_text' *ngIf="i.button_text"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

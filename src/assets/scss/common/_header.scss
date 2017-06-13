@@ -1,0 +1,85 @@
+// making menu items shown on hover
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.main-navigation {
+  .top-header {
+    padding: 9px 0 8px;
+    background-color: $blue-2;
+    .phone-no-wrapper {
+      float: right;
+      img{
+        float: left;
+        margin-right: 12px;
+      }
+      p{
+        float: left;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: $gray-8;
+        font-weight: 400;
+        a{
+          color: $white;
+          font-weight: 700;
+          &:hover{
+            color: $red-1;
+          }
+        }
+      }
+    }
+  }
+  .main-nav{
+    .navbar-header{
+      .navbar-brand{
+        height: auto;
+        padding: 21.5px 15px;
+        img{
+          height: 57px;
+        }
+      }
+    }
+    .navbar-nav{
+      > li{
+        @include menuItem;
+        a{
+          padding: 40px 15px;
+        }
+        &:last-of-type{
+          margin-top: 30px;
+          margin-left: 25px;
+          border-radius: 6px;
+          background-color: $red-1;
+          > a{
+            padding: 10px 15px;
+            color: $white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+          &:hover{
+            background-color: $red-1-hover;
+          }
+        }
+
+        > .dropdown-menu {
+          padding: 0;
+          li{
+            @include menuItem;
+            a{
+              padding: 15px;
+              border: 1px solid transparent;
+              &:hover{
+                border-top: 1px solid $gray-6;
+                border-bottom: 1px solid $gray-6;
+                background-color: $gray-7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

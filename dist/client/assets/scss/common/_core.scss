@@ -1,0 +1,32 @@
+/* fonts */
+@import 'fonts';
+
+/* core */
+@import 'variables';
+@import 'mixins';
+
+/* common */
+@import 'common';
+
+/* section */
+@import 'header';
+@import 'footer';
+
+/* overrides */
+@import 'overrides';
+
+@import "transition";
+
+@media(max-width: 991px) {
+//  @import "header-ipad";
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+//  @import "footer-ipad";
+}
+
+@media (max-width: 767px) {
+//  @import 'header-mobile';
+//  @import 'footer-mobile';
+
+}

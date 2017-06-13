@@ -1,0 +1,71 @@
+        // @import "./../../assets/scss/common/core";
+    @import "../../assets/scss/common/core";
+    .features-wrapper {
+        background-image: url(./../../assets/images/features_bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 628px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        @media (max-width: 767px) {
+            height: auto;
+        }
+    }
+    
+    h2 {
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 32px;
+        font-weight: 500;
+        letter-spacing: -1px;
+        line-height: 46px;
+        padding-bottom: 70px
+    }
+    
+    h3 {
+        color: #ffffff;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 28px;
+        text-transform: uppercase;
+        padding-top: 30px;
+        padding-bottom: 10px
+    }
+    
+    p {
+        /* Style for "A ClearCap" */
+        width: 350px;
+        height: 78px;
+        color: #ffffff;
+        font-family: 'Raleway', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+    }
+    
+    .article-wrapper {
+        padding-bottom: 70px;
+        article {
+            a {
+                color: #9dc400;
+                font-family: 'Poppins', sans-serif;
+                font-size: 12px;
+                font-weight: 400;
+                &:hover {
+                    color: #417505;
+                }
+            }
+        }
+        .primaryButton {
+            border-radius: 10px;
+            background-color: $green-1;
+            color: $white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            &:hover {
+                background-color: $green-2;
+            }
+        }

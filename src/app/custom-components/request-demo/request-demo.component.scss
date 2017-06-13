@@ -1,0 +1,84 @@
+@import "./../../../assets/scss/style.scss";
+
+.request-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  > div {
+    padding: 0;
+    .row {
+      margin: 0;
+    }
+  }
+
+  h2 {
+    @include heading1();
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  p {
+    @include heading4();
+  }
+  form {
+    input {
+      margin-bottom: 5px;
+      height: 45px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      background-color: $white;
+      color: $gray-9;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+    button {
+      @include primaryButton(14px 0);
+      width: 100%;
+      margin-bottom: 0
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .request-wrapper {
+    background-image: linear-gradient(180deg, #d9d9d7 0%, #f1f1f1 100%) !important;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .request-wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .row {
+      > div {
+        padding: 0 15px 0 0;
+      }
+    }
+    form {
+      margin-top: 43px;
+    }
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .request-wrapper {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    > div {
+      padding: 0;
+      .row {
+        margin: 0;
+      }
+    }
+    form {
+      margin-top: 43px;
+      margin-right: 41px;
+    }
+  }
+}

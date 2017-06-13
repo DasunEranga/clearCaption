@@ -1,0 +1,17 @@
+<div *ngIf="page" class="main-wrapper container-fluid terms-and-conditions-wrapper">
+
+    <section class="banner-wrapper row" [style.background-image]="'url(' + page.acf.term_of_use_banner_image + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.acf.term_of_use_banner_title'></h2>
+        </div>
+    </section>
+
+    <app-sub-nav-terms-conditions></app-sub-nav-terms-conditions>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-sm-12 content-wrapper" [innerHTML]='page.acf.term_of_use_content'></div>
+        </div>
+    </section>
+
+</div>

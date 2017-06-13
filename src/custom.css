@@ -1,0 +1,38 @@
+body {
+    background: red;
+}
+
+.slick-prev:before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 60px;
+    background: url(..assets/images/arrow-left.png) no-repeat center;
+}
+
+.slick-prev {
+    background: red;
+}
+
+body {
+    background: red;
+}
+
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .slick-slider .slick-prev {
+        left: 0px;
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {}

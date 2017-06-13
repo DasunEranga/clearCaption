@@ -1,0 +1,152 @@
+@import "../../../assets/scss/style.scss";
+
+
+.user-guides-wrapper {
+  overflow-x: hidden;
+  .items-wrapper {
+    padding: 40px 0 20px;
+    .user-guide {
+      display: block;
+      margin-bottom: 30px;
+      padding-left: 0;
+      border-radius: 10px;
+      border: 1px solid $gray-5;
+      background-color: $white;
+      @include transitionElement(.5s, ease, all);
+      &:hover,
+      &:focus,
+      &:active,
+      &:visited {
+        .user-guide-details {
+          h3,
+          h4 {
+            color: $blue-2;
+          }
+          h5,
+          h6{
+            color: $blue-2;
+          }
+          p{
+            color: $blue-6;
+          }
+          .download-btn{
+            @include smallButton(12px 20px);
+          }
+        }
+      }
+      .user-guide-photo {
+        min-height: 200px;
+        border-radius: 10px;
+      }
+      .user-guide-details {
+        padding: 20px;
+        text-align: center;
+        h3,
+        h4 {
+          margin-top: 20px;
+          margin-bottom: 15px;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 26px;
+          color: $blue-2;
+        }
+        h5,
+        h6{
+          margin-bottom: 20px;
+          color: $blue-2;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 24px;
+        }
+        p{
+          color: $blue-6;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 26px;
+        }
+        .download-btn{
+          @include smallButton(12px 20px);
+        }
+      }
+      &:hover {
+        @include custom-box-shadow(0 2px 20px 0, rgba(0, 0, 0, .2));
+      }
+    }
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .user-guides-wrapper {
+    .items-wrapper {
+      padding: 55px 0 30px;
+      .row{
+        margin: 0;
+      }
+      .user-guide {
+        .user-guide-photo {
+          padding-right: 0;
+          text-align: left;
+          img {
+            max-width: 200px;
+          }
+        }
+        .user-guide-details {
+          padding-left: 0;
+          h3,
+          h4 {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .user-guides-wrapper {
+    .items-wrapper {
+      .user-guide {
+        .user-guide-details {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .user-guides-wrapper {
+    .items-wrapper {
+      padding: 55px 0 30px;
+      .user-guide {
+        position: relative;
+        .user-guide-photo {
+          min-height: 370px;
+          border-radius: 10px 0 0 10px;
+        }
+        .user-guide-details {
+          min-height: 370px;
+          padding: 50px 50px 100px;
+          text-align: left;
+          h3,
+          h4 {
+            margin-top: 0;
+          }
+          h5,
+          h6{
+          }
+          p{
+          }
+        }
+        .download-btn{
+          position: absolute;
+          bottom: 50px;
+          left: 50px;
+        }
+      }
+    }
+  }
+}

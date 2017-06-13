@@ -1,0 +1,545 @@
+@import "../../../assets/scss/style.scss";
+.find-us-wrapper {
+    .find-us-full-wrapper {
+        padding-bottom: 70px;
+        .top-content {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: $blue-2;
+                font-family: Poppins;
+                font-size: 32px;
+                font-weight: 500;
+                letter-spacing: -1px;
+                line-height: 46px;
+            }
+            p {
+                color: $blue-6;
+                font-family: Raleway;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 26px;
+            }
+        }
+        .map-row {
+            border-radius: 10px;
+            border: 1px solid $gray-5;
+        }
+        .form-wrapper {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background-color: $gray-7;
+            border-radius: 10px 10px 0 0;
+            .form-control {
+                border-radius: 4px;
+                border: 1px solid $gray-4;
+                background-color: $white;
+                color: #596773;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .buttons-wrapper {
+                padding: 0 15px;
+            }
+            .cc-btn {
+                display: inline-block;
+                border-radius: 6px;
+                border: none;
+                background-color: $green-1;
+                color: $white;
+                font-family: 'Poppins', sans-serif;
+                outline: 0;
+                @include transitionElement(.5s, ease, background);
+                @include no-box-shadow();
+                border-radius: 6px;
+                background-color: $gray-4;
+                line-height: 12px;
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 15px 35px 10px;
+                width: 100%;
+                margin-top: 15px;
+                &:hover {
+                    background-color: $green-2;
+                }
+            }
+            .ret-button {
+                background: $gray-4;
+                margin-right: 0px;
+            }
+            .find-btn {
+                background: $blue-1;
+            }
+        }
+        .map-wrapper {
+            width: 100%;
+            height: 300px;
+        }
+        .event-detail-row {
+            padding-left: 15px;
+            padding-right: 15px;
+            height: auto;
+            .event-detail-box {
+                padding-top: 25px;
+                padding-bottom: 20px;
+                h1,
+                h2,
+                h3 {
+                    color: $blue-6;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 26px;
+                }
+                h4 {
+                    color: $red-1;
+                    font-family: Poppins;
+                    font-size: 12px;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    margin-bottom: 10px;
+                }
+                h5 {
+                    color: $blue-6;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 26px;
+                    img {
+                        margin-right: 15px;
+                    }
+                }
+                .learn-more {
+                    color: $green-1;
+                    font-family: Poppins;
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .get-derection {
+                    color: $gray-4;
+                    font-family: Poppins;
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+                .link-wrapper {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    .find-us-wrapper {
+        .find-us-full-wrapper {
+            padding-bottom: 70px;
+            .top-content {
+                padding-top: 60px;
+                padding-bottom: 60px;
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    color: $blue-2;
+                    font-family: Poppins;
+                    font-size: 32px;
+                    font-weight: 500;
+                    letter-spacing: -1px;
+                    line-height: 46px;
+                }
+                p {
+                    color: $blue-6;
+                    font-family: Raleway;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 26px;
+                }
+            }
+            .map-row {
+                border-radius: 10px;
+                border: 1px solid $gray-5;
+            }
+            .form-wrapper {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                background-color: $gray-7;
+                border-radius: 10px 10px 0 0;
+                .form-control {
+                    border-radius: 4px;
+                    border: 1px solid $gray-4;
+                    background-color: $white;
+                    color: #596773;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                .cc-btn {
+                    display: inline-block;
+                    border-radius: 6px;
+                    border: none;
+                    background-color: $green-1;
+                    color: $white;
+                    font-family: 'Poppins', sans-serif;
+                    outline: 0;
+                    @include transitionElement(.5s, ease, background);
+                    @include no-box-shadow();
+                    border-radius: 6px;
+                    background-color: #abbcc7;
+                    line-height: 12px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    padding: 15px 35px 10px;
+                    width: auto;
+                    margin-top: 0;
+                    &:hover {
+                        background-color: $green-2;
+                    }
+                }
+                .ret-button {
+                    background: $gray-4;
+                    margin-right: 10px;
+                }
+                .find-btn {
+                    background: $blue-1;
+                }
+            }
+            .map-wrapper {
+                width: 100%;
+                height: 700px;
+            }
+            .event-detail-row {
+                padding-left: 15px;
+                padding-right: 15px;
+                height: 700px;
+                overflow-x: hidden;
+                .event-detail-box {
+                    padding-top: 25px;
+                    padding-bottom: 20px;
+                    h1,
+                    h2,
+                    h3 {
+                        color: $blue-6;
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 26px;
+                    }
+                    h4 {
+                        color: $red-1;
+                        font-family: Poppins;
+                        font-size: 12px;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        margin-bottom: 10px;
+                    }
+                    h5 {
+                        color: $blue-6;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 26px;
+                        img {
+                            margin-right: 15px;
+                        }
+                    }
+                    .learn-more {
+                        color: $green-1;
+                        font-family: Poppins;
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                    .get-derection {
+                        color: $gray-4;
+                        font-family: Poppins;
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                    .link-wrapper {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .find-us-wrapper {
+        .find-us-full-wrapper {
+            padding-bottom: 70px;
+            .top-content {
+                padding-top: 60px;
+                padding-bottom: 60px;
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    color: $blue-2;
+                    font-family: Poppins;
+                    font-size: 32px;
+                    font-weight: 500;
+                    letter-spacing: -1px;
+                    line-height: 46px;
+                }
+                p {
+                    color: $blue-6;
+                    font-family: Raleway;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 26px;
+                }
+            }
+            .map-row {
+                border-radius: 10px;
+                border: 1px solid $gray-5;
+            }
+            .form-wrapper {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                background-color: $gray-7;
+                border-radius: 10px 10px 0 0;
+                .form-control {
+                    border-radius: 4px;
+                    border: 1px solid $gray-4;
+                    background-color: $white;
+                    color: #596773;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                .cc-btn {
+                    display: inline-block;
+                    border-radius: 6px;
+                    border: none;
+                    background-color: $green-1;
+                    color: $white;
+                    font-family: 'Poppins', sans-serif;
+                    outline: 0;
+                    @include transitionElement(.5s, ease, background);
+                    @include no-box-shadow();
+                    border-radius: 6px;
+                    background-color: #abbcc7;
+                    line-height: 12px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    padding: 15px 35px 10px;
+                    &:hover {
+                        background-color: $green-2;
+                    }
+                }
+                .ret-button {
+                    background: $gray-4;
+                    margin-right: 10px;
+                }
+                .find-btn {
+                    background: $blue-1;
+                }
+            }
+            .map-wrapper {
+                width: 100%;
+                height: 700px;
+            }
+            .event-detail-row {
+                padding-left: 15px;
+                padding-right: 15px;
+                height: 700px;
+                overflow-x: hidden;
+                .event-detail-box {
+                    padding-top: 25px;
+                    padding-bottom: 20px;
+                    h1,
+                    h2,
+                    h3 {
+                        color: $blue-6;
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 26px;
+                    }
+                    h4 {
+                        color: $red-1;
+                        font-family: Poppins;
+                        font-size: 12px;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        margin-bottom: 10px;
+                    }
+                    h5 {
+                        color: $blue-6;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 26px;
+                        img {
+                            margin-right: 15px;
+                        }
+                    }
+                    .learn-more {
+                        color: $green-1;
+                        font-family: Poppins;
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                    .get-derection {
+                        color: $gray-4;
+                        font-family: Poppins;
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                    .link-wrapper {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .find-us-wrapper {
+        .find-us-full-wrapper {
+            padding-bottom: 70px;
+            .top-content {
+                padding-top: 60px;
+                padding-bottom: 60px;
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    color: $blue-2;
+                    font-family: Poppins;
+                    font-size: 32px;
+                    font-weight: 500;
+                    letter-spacing: -1px;
+                    line-height: 46px;
+                }
+                p {
+                    color: $blue-6;
+                    font-family: Raleway;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 26px;
+                }
+            }
+            .map-row {
+                border-radius: 10px;
+                border: 1px solid $gray-5;
+            }
+            .form-wrapper {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                background-color: $gray-7;
+                border-radius: 10px 10px 0 0;
+                .form-control {
+                    border-radius: 4px;
+                    border: 1px solid $gray-4;
+                    background-color: $white;
+                    color: #596773;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                .cc-btn {
+                    display: inline-block;
+                    border-radius: 6px;
+                    border: none;
+                    background-color: $green-1;
+                    color: $white;
+                    font-family: 'Poppins', sans-serif;
+                    outline: 0;
+                    @include transitionElement(.5s, ease, background);
+                    @include no-box-shadow();
+                    border-radius: 6px;
+                    background-color: #abbcc7;
+                    line-height: 12px;
+                    font-size: 12px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    padding: 15px 35px 10px;
+                    &:hover {
+                        background-color: $green-2;
+                    }
+                }
+                .ret-button {
+                    background: $gray-4;
+                    margin-right: 10px;
+                }
+                .find-btn {
+                    background: $blue-1;
+                }
+            }
+            .map-wrapper {
+                width: 100%;
+                height: 700px;
+            }
+            .event-detail-row {
+                padding-left: 15px;
+                padding-right: 15px;
+                height: 700px;
+                overflow-x: hidden;
+                .event-detail-box {
+                    padding-top: 25px;
+                    padding-bottom: 20px;
+                    h1,
+                    h2,
+                    h3 {
+                        color: $blue-6;
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 26px;
+                    }
+                    h4 {
+                        color: $red-1;
+                        font-family: Poppins;
+                        font-size: 12px;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        margin-bottom: 10px;
+                    }
+                    h5 {
+                        color: $blue-6;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 26px;
+                        img {
+                            margin-right: 15px;
+                        }
+                    }
+                    .learn-more {
+                        color: $green-1;
+                        font-family: Poppins;
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                    .get-derection {
+                        color: $gray-4;
+                        font-family: Poppins;
+                        font-size: 13px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                    .link-wrapper {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

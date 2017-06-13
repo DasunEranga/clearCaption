@@ -1,0 +1,66 @@
+<footer *ngIf="option">
+    <div class="container-fluid">
+        <div class="row footer-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 logo-wrapper">
+                        <a href="/"><img [attr.src]='option.acf.footer_logo' alt="" /></a>
+                        <p [innerHTML]='option.acf.copyright_text'></p>
+                    </div>
+                    <div *ngIf="menu" class="col-sm-7">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-6">
+                                <ul>
+                                    <li>Products</li>
+                                    <li><a href="/products/home-phone">Home Phone</a></li>
+                                    <li><a href="/products/mobile-phone">Mobile App</a></li>
+                                    <li><a href="/products/web-portal">Web Portal</a></li>
+                                    <li><a href="/sign-me-up">Sign Up</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-4 col-xs-6">
+                                <ul>
+                                    <li>More Info</li>
+                                    <li><a href="/how-it-works">How It Works</a></li>
+                                    <li><a href="/how-it-works?eligibility">Am I Eligible</a></li>
+                                    <li><a href="/how-it-works?howFree">How is it Free</a></li>
+                                    <li><a href="/professionals">Professionals</a></li>
+                                    <li><a href="/support">Support</a></li>
+                                    <li><a href="/request-a-demo">Request A Demo</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-4">
+                                <ul>
+                                    <li>About Us</li>
+                                    <li><a href="/about-us">About Us</a></li>
+                                    <li><a href="/contact-us">Contact Us</a></li>
+                                    <li><a href="/careers">Careers</a></li>
+                                    <li><a href="/news">News</a></li>
+                                    <li><a href="/privacy">Privacy</a></li>
+                                    <li><a href="/terms">Terms of Use</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 social-meadia">
+                        <ul>
+                            <li>Connect with us</li>
+                            <li>
+                                <a href="{{option.acf.facebook_url}}"><img src="../assets/images/temp/facebook.svg" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="{{option.acf.twitter_url}}"><img src="../assets/images/temp/twitter.svg" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="{{option.acf.linkedin_url}}"><img src="../assets/images/temp/linkedin.svg" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="{{option.acf.youtube_url}}"><img src="../assets/images/temp/youtube.svg" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

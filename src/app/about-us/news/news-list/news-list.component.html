@@ -1,0 +1,23 @@
+<div class="main-wrapper news-wrapper container-fluid">
+    <section *ngIf="page" class="banner-wrapper row" [style.background-image]="'url(' + page.better_featured_image.media_details.sizes.large.source_url + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.title.rendered'></h2>
+        </div>
+    </section>
+    <app-sub-nav></app-sub-nav>
+    <section class="news-items-wrapper container" *ngIf="news">
+        <div class="row">
+            <div class="col-md-4 col-sm-6" *ngFor="let n of news">
+                <a class="news-item" href="news/{{n.slug}}">
+                    <div class="item-image" [style.background-image]="'url(' + n.acf.image + ')'" style="background-size: cover; background-repeat: no-repeat;">
+                    </div>
+                    <div class="item-details">
+                        <h3 [innerHTML]='n.acf.title'></h3>
+                        <div [innerHTML]='n.content.rendered'></div>
+                        <h5 [innerHTML]='n.acf.date'></h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

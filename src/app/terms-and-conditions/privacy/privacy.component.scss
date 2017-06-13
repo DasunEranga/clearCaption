@@ -1,0 +1,118 @@
+@import "../../../assets/scss/style.scss";
+
+.privacy-wrapper{
+  padding-left: 0;
+  padding-right: 0;
+  .content-wrapper{
+    padding: 30px 15px;
+    p{
+      margin-bottom: 24px;
+      color: $blue-6;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+    }
+    ol{
+      margin: 0;
+      padding: 0 0 0 10px;
+      counter-reset: item;
+      > li{
+        position: relative;
+        margin: 0;
+        padding: 0 0 0 20px;
+        list-style-type: none;
+        counter-increment: item;
+        color: $blue-6;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        h2,
+        h3 {
+          padding-bottom: 0;
+        }
+        h4,
+        h5,
+        h6 {
+          padding-bottom: 0;
+        }
+        &:before {
+          position: absolute;
+          top: -1px;
+          left: 0;
+          display: inline-block;
+          width: 1em;
+          padding-right: 0.5em;
+          font-weight: bold;
+          text-align: right;
+          content: counter(item) ".";
+        }
+      }
+    }
+    h2,
+    h3 {
+      @include heading1;
+      padding-bottom: 20px;
+    }
+    h4,
+    h5,
+    h6 {
+      @include paragraph1;
+      padding-bottom: 15px;
+      font-weight: 700;
+    }
+    p {
+      @include paragraph1;
+    }
+    ul {
+      padding: 0 0 0 10px;
+      margin-left: 15px;
+      li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+        color: $blue-6;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        h2,
+        h3 {
+          padding-bottom: 0;
+        }
+        h4,
+        h5,
+        h6 {
+          padding-bottom: 0;
+        }
+        &:before {
+          content: '•';
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: $blue-6;
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .privacy-wrapper{
+    padding-left: 0;
+    padding-right: 0;
+    .content-wrapper{
+      padding: 55px 0 60px;
+    }
+  }
+}

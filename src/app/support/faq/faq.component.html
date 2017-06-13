@@ -1,0 +1,68 @@
+<div *ngIf="page" class="main-wrapper faq-wrapper container-fluid">
+<section
+    class="banner-wrapper row" [style.background-image]="'url(' + page.acf.faq_banner_image + ')'" style="background-size: cover; background-repeat: no-repeat;">
+<div class="banner-content">
+  <h2 [innerHTML]='page.acf.faq_banner_title'></h2>
+</div>
+</section>
+<section class="container faq-content-wrapper">
+  <div class="row">
+    <div class="col-sm-7 faq-items-wrapper">
+
+      <h2 [innerHTML]='page.acf.faq_main_content_title'></h2>
+
+      <ul class="nav nav-tabs">
+        <li
+        *ngFor="let tab of page.acf.faq_tab; let i=index" [class.active]="i ==0"><a data-toggle="tab" href="#{{ tab.tab_heading | lowercase }}">{{
+        tab.tab_heading }}</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div
+        *ngFor="let tab of page.acf.faq_tab; let i=index"  [class.active]="i ==0" id="{{ tab.tab_heading | lowercase }}" class="tab-pane fade in
+        active">
+
+        <div class="panel-group" id="accordion{{ i }}" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default" *ngFor="let content of tab.tab_content; let j=index" >
+          <div class="panel-heading" role="tab" [attr.id]="'heading' + i + '_' + j">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" [attr.data-parentd]="'#accordion' + i " [attr.href]="'#collapse' + i + '_' + j" aria-controls="collapse' + i + '_' + j">
+                {{ content.q }}</a>
+            </h4>
+          </div>
+          <div id="collapse{{ i }}_{{j}}" [class.in]=" j ==0 " class="panel-collapse collapse"  [attr.aria-labelledby]="'heading' + i + '_' + j">
+            <div class="panel-body"
+            [innerHTML]='content.a '>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <div class="col-sm-4 col-sm-offset-1 ad-wrapper">
+    <div class="customer-care">
+      <h3 [innerHTML]='page.acf.faq_customer_care_title'></h3>
+      <table>
+        <tr
+        *ngFor="let c of page.acf.faq_customer_care_detail">
+        <td
+        [innerHTML]='c.title'></td>
+        <td
+        [innerHTML]='c.description'></td>
+        </tr>
+      </table>
+    </div>
+    <div class="ad-content"
+    [style.background-image]="'url(' + page.acf.faq_adds_background_image + ')'" style="background:no-repeat center;
+    background-size: cover;">
+    <h3 [innerHTML]='page.acf.faq_adds_title'></h3>
+    <a [innerHTML]='page.acf.faq_adds_button_text' href="{{page.acf.faq_adds_button_url}}"></a>
+  </div>
+  </div>
+  </div>
+</section>
+
+</div>
+
+    <!--http://getbootstrap.com/javascript/#collapse-example-accordion-->

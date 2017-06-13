@@ -1,0 +1,191 @@
+@import "../../../assets/scss/style.scss";
+.careers-wrapper {
+  .good-to-be-true-wrapper {
+    padding-top: 55px;
+    h2 {
+      @include heading1;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    >p {
+      color: $brown-1;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px;
+      text-align: center;
+    }
+    .items-wrapper {
+      margin-top: 60px;
+      margin-bottom: 70px;
+      .item {
+        .image-wrapper {
+          position: relative;
+          overflow: hidden;
+          img {
+            width: 100%;
+          }
+          .content {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            padding: 20px 16px;
+            background: rgba(0, 0, 0, .3);
+            @include transitionElement(.5s, ease, all);
+            ul {
+              padding: 0;
+              li {
+                position: relative;
+                margin-left: 20px;
+                margin-bottom: 10px;
+                font-size: 14px;
+                line-height: 22px;
+                color: $white;
+                font-weight: 500;
+                &:after {
+                  content: '✓';
+                  position: absolute;
+                  left: -15px;
+                  top: 0;
+                  color: $green-3;
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+          &:hover {
+            .content {
+              opacity: 1;
+            }
+          }
+        }
+        >p {
+          margin-top: 20px;
+          color: $blue-2;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 28px;
+        }
+      }
+    }
+  }
+  .field-of-work-wrapper {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    h2 {
+      margin-bottom: 10px;
+      color: $white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: -1px;
+      line-height: 46px;
+      text-align: center;
+    }
+    h3 {
+      margin-bottom: 80px;
+      color: $white;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px;
+      text-align: center;
+    }
+    .job-items-wrapper {
+      .job-item {
+        text-align: center;
+        h4 {
+          margin-bottom: 10px;
+          color: $white;
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+        p {
+          color: $white;
+          font-family: Raleway;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 26px;
+        }
+        a {
+          @include linkNormal;
+          display: inline-block;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  .create-profile-wrapper {
+    >div {
+      &:first-of-type {
+        min-height: 430px;
+      }
+      .inner-content {
+        padding-top: 88px;
+        padding-bottom: 88px;
+      }
+    }
+    h2 {
+      @include heading1;
+    }
+    p {
+      color: $blue-6;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+      margin-bottom: 15px;
+    }
+    a {
+      @include primaryButton(12px 30px);
+    }
+  }
+  .refer-friend-wrapper {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-image: linear-gradient(180deg, $blue-2 0%, #001738 100%);
+    text-align: center;
+    h2 {
+      @include heading1;
+      margin-bottom: 20px;
+      color: $white;
+    }
+    h3 {
+      margin-bottom: 10px;
+      color: $brown-2;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    h4 {
+      margin-bottom: 40px;
+      color: $white;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32px;
+    }
+    a {
+      @include primaryButton(12px 30px);
+    }
+  }
+}
+
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .careers-wrapper .banner-wrapper .banner-content .btn-wrapper button{
+    padding: 15px 34px;
+  }
+}

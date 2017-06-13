@@ -1,0 +1,319 @@
+@import "../../../assets/scss/style.scss";
+
+/* Extra small devices (phones, less than 768px) */
+
+
+/* No media query since this is the default in Bootstrap */
+
+.main-navigation {
+    background: $white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    .top-header {
+        padding: 7px 0 6px;
+        background-color: $blue-2;
+        .phone-no-wrapper {
+            float: right;
+            img {
+                float: left;
+                margin-right: 12px;
+            }
+            p {
+                float: left;
+                font-family: 'Poppins', sans-serif;
+                font-size: 12px;
+                text-transform: uppercase;
+                color: $gray-8;
+                font-weight: 400;
+                a {
+                    color: $white;
+                    font-weight: 700;
+                    &:hover {
+                        color: $red-1;
+                    }
+                }
+            }
+        }
+    }
+    .main-nav {
+        .navbar-header {
+            .navbar-brand {
+                width: calc(100% - 140px);
+                height: auto;
+                padding: 14px 0;
+                text-align: center;
+                img {
+                    height: 36px;
+                    display: inline-block;
+                }
+            }
+            .navbar-toggle {
+                float: left;
+                margin-top: 16px;
+                padding-left: 20px;
+                border: none;
+                .icon-bar {
+                    background-color: $blue-2;
+                    &:nth-of-type(2) {
+                        width: 20px;
+                    }
+                    &:nth-of-type(3) {
+                        width: 17px;
+                    }
+                    &:nth-of-type(4) {
+                        width: 14px;
+                    }
+                }
+                &:focus,
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+        .navbar-nav {
+            margin-top: 0;
+            >li {
+                @include menuItem;
+                a {
+                    padding: 10px 15px;
+                }
+                &:last-of-type {
+                    a {
+                        color: $red-1;
+                    }
+                }
+                &.dropdown {
+                    >a {
+                        &:nth-of-type(1) {
+                            display: none;
+                        }
+                    }
+                    >.dropdown-menu {
+                        li {
+                            a {
+                                padding-left: 25px;
+                            }
+                        }
+                    }
+                    &.products {
+                        >.dropdown-menu {
+                            li {
+                                a {
+                                    img {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    .main-navigation {
+        .main-nav {
+            .navbar-nav {
+                margin-top: 14px;
+                >li {
+                    font-size: 13px;
+                    a {
+                        padding: 10px 12px;
+                    }
+                    &.dropdown {
+                        >a {
+                            &:nth-of-type(1) {
+                                display: inline-block;
+                            }
+                            &:nth-of-type(2) {
+                                display: none;
+                            }
+                        }
+                        >.dropdown-menu {
+                            li {
+                                a {
+                                    padding-left: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .main-navigation {
+        .main-nav {
+            .navbar-nav {
+                >li {
+                    &.dropdown {
+                        >a {
+                            &:nth-of-type(1) {
+                                display: inline-block;
+                            }
+                            &:nth-of-type(2) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .main-navigation {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        .main-nav {
+            .navbar-header {
+                .navbar-brand {
+                    height: auto;
+                    width: auto;
+                    padding: 21.5px 15px 21.5px 0;
+                    img {
+                        height: 57px;
+                    }
+                }
+            }
+            .navbar-nav {
+              margin-top: 4px;
+                >li {
+                    @include menuItem;
+                    a {
+                        padding: 40px 15px;
+                    }
+                    &:last-of-type {
+                        margin-top: 30px;
+                        margin-left: 25px;
+                        border-radius: 6px;
+                        border: 1px solid transparent;
+                        background-color: $red-1;
+                        @include transitionElement(.3s, ease, all);
+                        >a {
+                            padding: 10px 15px;
+                            color: $white;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 12px;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                        }
+                        &:hover {
+                            border: 1px solid $red-1;
+                            background: transparent;
+                            a {
+                                color: $red-1;
+                            }
+                        }
+                    }
+                    &.dropdown {
+                        // making menu items shown on hover
+                        &:hover {
+                            .dropdown-menu {
+                                display: block;
+                            }
+                        }
+                        >a {
+                            &:nth-of-type(1) {
+                                display: inline-block;
+                            }
+                            &:nth-of-type(2) {
+                                display: none;
+                            }
+                        }
+                        >.dropdown-menu {
+                            right: -125px;
+                            min-width: 270px;
+                            padding: 3px 0 0;
+                            border: none;
+                            background: transparent;
+                            border-radius: 0 0 6px 6px;
+                            li {
+                                @include menuItem;
+                                background: $white;
+                                a {
+                                    padding: 15px;
+                                    border-top: 1px solid transparent;
+                                    border-bottom: 1px solid $gray-6;
+                                    background: transparent url(assets/images/arrow-right-head.png) no-repeat center right 20px;
+                                    &:hover {
+                                        background-color: $gray-7;
+                                    }
+                                }
+                                &:last-of-type {
+                                    border-radius: 0 0 6px 6px;
+                                    a {
+                                        border-radius: 0 0 6px 6px;
+                                    }
+                                }
+                            }
+                        }
+                        &.products {
+                            >.dropdown-menu {
+                                right: auto;
+                                left: -30px;
+                                min-width: 750px;
+                                li {
+                                    width: 250px;
+                                    height: 234px;
+                                    float: left;
+                                    a {
+                                        display: inline-block;
+                                        height: 234px;
+                                        width: 250px;
+                                        background: transparent;
+                                        border: none;
+                                        text-align: center;
+                                        img {
+                                            margin: 35px auto 0;
+                                            display: block;
+                                        }
+                                        &:hover {
+                                            background-color: $gray-7;
+                                        }
+                                    }
+                                    &:not(:last-of-type) {
+                                        border-right: 1px solid $gray-6;
+                                        a {
+                                            width: 249px;
+                                        }
+                                    }
+                                    &:first-of-type {
+                                        border-radius: 0 0 0 6px;
+                                        a {
+                                            border-radius: 0 0 0 6px;
+                                        }
+                                    }
+                                    &:last-of-type {
+                                        border-radius: 0 0 6px 0;
+                                        a {
+                                            border-radius: 0 0 6px 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.active {
+                        >a {
+                            color: $red-1;
+                            background: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

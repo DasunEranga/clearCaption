@@ -1,0 +1,26 @@
+<div *ngIf="press" class="main-wrapper default-details-page container-fluid">
+    <section class="banner-wrapper row" style="background-image: linear-gradient(180deg, #002756 0%, #001738 100%);">
+        <div class="banner-content">
+            <h3 [innerHTML]='press.title.rendered'></h3>
+            <h5 [innerHTML]='press.acf.press_releases_date'></h5>
+        </div>
+    </section>
+    <section class="back-action-wrapper row">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <a href="/press-releases">
+                        <img src="assets/images/arrow-left.svg" alt="" />Go Back to Press Releases
+                    </a>
+                </div>
+                <div class="col-sm-6">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=clearcaptions.com/press-releases/{{ press.slug }}" target="_blank"><img src="assets/images/share-fb.png" alt="" /></a>
+                    <a href="https://twitter.com/home?status=clearcaptions.com/press-releases/{{ press.slug }}"><img src="assets/images/share-twitter.png" alt="" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-wrapper container">
+        <div [innerHTML]='press.content.rendered'></div>
+    </section>
+</div>

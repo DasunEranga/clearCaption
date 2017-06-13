@@ -1,0 +1,228 @@
+<div class="main-wrapper home-phone-wrapper container-fluid" *ngIf="product">
+
+    <!--Banner section-->
+    <section>
+        <div class="banner-wrapper row" [style.background-image]="'url(' + product.acf.product_banner_image + ')'" [ngStyle]="{ 'background-size':
+  'cover','background-repeat': 'no-repeat'} ">
+            <div class="container">
+                <div class="col-sm-12 col-md-10 banner-content">
+                    <h2 [innerHTML]='product.acf.products_banner_title'></h2>
+                    <p [innerHTML]='product.acf.products_banner_content'></p>
+                    <!--<a href="{{product.acf.product_banner_left_button_url}}"><img [attr.src]='product.acf.product_banner_left_app_button_image' alt=""></a>
+      <a href="{{product.acf.product_banner_right_button_url}}" class="btn-right"><img [attr.src]='product.acf.product_banner_right_app_button_image' alt=""></a>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Tab section-->
+    <section>
+        <div class="tab-wrapper row">
+            <div class="tab-menu">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#Overview" aria-controls="home" role="tab" data-toggle="tab">Overview</a>
+                    </li>
+                    <li role="presentation"><a href="#Requirement" aria-controls="profile" role="tab" data-toggle="tab">Requirement</a></li>
+                    <li role="presentation"><a href="#Specifications" aria-controls="messages" role="tab" data-toggle="tab">Specifications</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!--Overview-->
+                <div role="tabpanel" class="tab-pane active" id="Overview">
+                    <div class="overview-wrapper">
+                        <div class="web-portal-item-wrapper" [style.background-image]="'url(' + product.acf.product_tab_1_background_image + ')'" [ngStyle]="{
+          'background-size': 'cover','background-repeat': 'no-repeat'} ">
+                            <div class="container content">
+                                <h2 [innerHTML]='product.acf.product_tab_1_content_title'></h2>
+                                <div [innerHTML]='product.acf.product_tab_1_content'>
+                                </div>
+                                <div class="info-wrapper">
+                                    <div class="info-item-wrapper left">
+                                        <div class="info-item" *ngFor="let l of product.acf.product_tab_1_tooltip_box">
+                                            <div [innerHTML]='l.box_left'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info-image-wrapper">
+                                        <div class="spacer"></div>
+                                        <img [attr.src]='product.acf.product_tab_1_image' alt="" class="img-responsive" />
+                                        <div class="spacer"></div>
+                                    </div>
+                                    <div class="info-item-wrapper right">
+                                        <div class="info-item" *ngFor="let r of product.acf.product_tab_1_tooltip_box">
+                                            <div [innerHTML]='r.box_right'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="info-slider-wrapper hidden-lg">
+      <div class="info-image-wrapper">
+          <img [attr.src]='product.acf.product_tab_1_image' alt="" class="img-responsive" />
+      </div>
+      <div class="info-item-slider">
+          <div class="info-item" *ngFor="let item of getToolTipItems(product.acf.product_tab_1_tooltip_box)">
+              <div class="content" [innerHTML]='item.content'></div>
+          </div>
+      </div>
+  </div>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Requirement-->
+                <div role="tabpanel" class="tab-pane" id="Requirement">
+                    <div class="row requirement-wrapper" [style.background-image]="'url(' + product.acf.product_tab_2_image + ')'">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <h3 [innerHTML]='product.acf.product_tab_2_content_title'></h3>
+                                    <div [innerHTML]='product.acf.product_tab_2_content'>
+                                    </div>
+                                    <a [innerHTML]='product.acf.product_tab_2_button_text' href="{{product.acf.product_tab_2_button_url}}" class="btn primaryButton"></a>
+                                </div>
+                                <div class="col-xs-12 col-md-6 right"></div>
+                            </div>
+                        </div>
+                        <!--end of container-->
+                    </div>
+                    <!--end of row-->
+                </div>
+
+                <!--Specifications-->
+                <div role="tabpanel" class="tab-pane" id="Specifications">
+                    <div class="row specifications-wrapper">
+                        <div class="container">
+                            <div class="col-xs-12 col-md-12 specifications-cont">
+                                <h3 [innerHTML]='product.acf.product_tab_3_content_title'></h3>
+                                <div [innerHTML]='product.acf.product_tab_3_content'>
+                                </div>
+                                <a [innerHTML]='product.acf.product_tab_3_button_text' href="{{product.acf.product_tab_3_button_text}}" class="btn primaryButton"
+                          *ngIf="product.acf.product_tab_3_button_text"></a>
+                            </div>
+
+                        </div>
+                        <!--end of container-->
+                    </div>
+                    <!--end of row-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<section>
+<div class="overview-wrapper">
+    <div class="web-portal-item-wrapper"
+    [style.background-image]="'url(' + product.acf.ensemble_with_cc_background_image + ')'" [ngStyle]="{
+    'background-size': 'cover','background-repeat': 'no-repeat'} ">
+    <div class="container content">
+      <h2 [innerHTML]='product.acf.ensemble_with_cc_title'></h2>
+      <div class="sub-header"
+      [innerHTML]='product.acf.ensemble_with_cc_content'>
+    </div>
+    <div class="info-wrapper visible-lg">
+      <div class="info-item-wrapper left">
+        <div class="info-item"
+        *ngFor="let l of product.acf.ensemble_with_cc_tooltip_box">
+        <div
+        [innerHTML]='l.box_left'>
+      </div>
+    </div>
+  </div>
+  <div class="info-image-wrapper">
+    <div class="spacer"></div>
+    <img [attr.src]='product.acf.ensemble_with_cc_device_image' alt="" class="img-responsive" />
+    <div class="spacer"></div>
+  </div>
+  <div class="info-item-wrapper right">
+    <div class="info-item"
+    *ngFor="let r of product.acf.ensemble_with_cc_tooltip_box">
+    <div
+    [innerHTML]='r.box_right'>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="info-slider-wrapper hidden-lg">
+    <div class="info-image-wrapper">
+      <img [attr.src]='product.acf.ensemble_with_cc_tooltip_box' alt="" class="img-responsive" />
+    </div>
+    <div class="info-item-slider">
+      <div class="info-item"
+      *ngFor="let item of getToolTipItems(product.acf.ensemble_with_cc_tooltip_box)">
+      <div class="content"
+      [innerHTML]='item.content'>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+</section>-->
+
+    <!--features-->
+    <section class="feature-wrapper row text-center" [style.background-image]="'url(' + product.acf.product_features_background + ')'" [ngStyle]="{  'background-size': 'cover','background-repeat': 'no-repeat'} ">
+        <div class="container">
+            <h3 [innerHTML]='product.acf.product_features_title'></h3>
+
+            <div class="article-wrapper row visible-lg">
+                <div class="col-xs-12 col-md-4" *ngFor="let f of product.acf.product_feature">
+                    <article>
+                        <img [attr.src]='f.product_feature_icon' alt="" />
+                        <h4 [innerHTML]='f.product_feature_title'></h4>
+                        <div [innerHTML]='f.product_feature_content'>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!--small device feature slider-->
+            <div class="product-feature-slider-wrapper row hidden-lg">
+                <div class="product-feature-slider">
+                    <article *ngFor="let fs of product.acf.product_feature">
+                        <div class="slide">
+                            <img [attr.src]='fs.product_feature_icon' alt="" class="img-responsive">
+                            <h4 [innerHTML]='fs.product_feature_title'></h4>
+                            <div [innerHTML]='fs.product_feature_content'>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!--end of article wrapper-->
+            <a href="{{product.acf.product_feature_button_url}}" [innerHTML]='product.acf.product_feature_button_text' class="btn primaryButton"></a>
+        </div>
+        <!--end of container-->
+    </section>
+
+    <!--Testimonial-->
+    <section class="testimonials-slider-wrapper row" [style.background-image]="'url(' + product.acf.product_testimonial_background_image + ')'" *ngIf="product.acf.product_testimonial">
+        <div class="container">
+            <div class="row testimonials-slider">
+                <div class="slide" *ngFor="let t of product.acf.product_testimonial">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <div class="item-content">
+                            <div class="content">
+                                <div [innerHTML]='t.product_testimonial_content'>
+                                </div>
+                                <h5 [innerHTML]='t.product_testimonial_author'></h5>
+                                <h6 [innerHTML]='t.product_testimonial_location'></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 image-wrapper">
+                        <img [attr.src]="t.product_testimonial_image" alt="" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Talk to consultant-->
+    <app-talk-to-consultant></app-talk-to-consultant>
+</div>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ClearCaption</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO2D9omJmUavGxxrKs9p5ryH36gYFBQFA" async defer></script>
+</head>
+
+<body>
+
+    <app-root>Loading...</app-root>
+
+</body>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js"></script>
+
+<script>
+    $(function() {
+        getFBEventsData("","");
+
+        $("#address").keyup(function(event){
+            if(event.keyCode == 13){
+                searchAddress();
+            }
+        });
+    });
+
+    function degreesToRadians(degrees) {
+        return degrees * Math.PI / 180;
+    }
+
+    function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
+        var earthRadiusKm = 6371;
+
+        var dLat = degreesToRadians(lat2-lat1);
+        var dLon = degreesToRadians(lon2-lon1);
+
+        lat1 = degreesToRadians(lat1);
+        lat2 = degreesToRadians(lat2);
+
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return earthRadiusKm * c;
+    }
+
+    function resetAddress() {
+        $("#address").val("");
+        getFBEventsData("","");
+    }
+
+    function searchAddress() {
+        var lat = '';
+        var lng = '';
+        var address = $("#address").val();
+        var geocoder= new google.maps.Geocoder();
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                lat = results[0].geometry.location.lat();
+                lng = results[0].geometry.location.lng();
+                getFBEventsData(lat,lng);
+            } else {
+                getFBEventsData("","");
+            }
+        });
+
+    }
+
+    function getFBEventsData(lat,lng) {
+        var desiredRadiusInKm = 4320;
+        var ajaxData = {
+            ajax: true,
+            method: 'Get Client Data'
+        };
+
+        $.ajax({
+            type  : "GET",
+            url   : '/api/fbevents', // TODO
+            data  : ajaxData,
+
+            success : function(response) {
+                var data       = response.events.data;
+                var map;
+                var markers = [];
+                var lastinfowindow;
+                var locIndex;
+
+                //Credit: MDN
+                if ( !Array.prototype.forEach ) {
+                    Array.prototype.forEach = function(fn, scope) {
+                        for(var i = 0, len = this.length; i < len; ++i) {
+                            fn.call(scope, this[i], i, this);
+                        }
+                    }
+                }
+
+
+                function initialize() {
+                    var bounds     = new google.maps.LatLngBounds();
+                    var mapOptions = { 		mapTypeControl: true,
+                        gestureHandling: 'cooperative'
+                    };
+                    map            =  new google.maps.Map(document.getElementById("map"), mapOptions);
+
+                    geocoder       = new google.maps.Geocoder();
+                    zindex         = 1;
+
+                    var htmlDatas = "";
+                    var mapCount = 0;
+                        data.forEach(function(mapData,idx) {
+                            if(lat != "" && lng != "") {
+                                var currentDistance = distanceInKmBetweenEarthCoordinates(lat, lng, mapData.place.location.latitude, mapData.place.location.longitude);
+                                console.log(currentDistance);
+                                if(currentDistance > desiredRadiusInKm ){
+                                    return false;
+                                } else {
+                                    mapCount = 1;
+                                }
+                            }
+                            var id = idx+1;
+                            var currentAddress = mapData.place.location.street+","+mapData.place.location.city+","+mapData.place.location.state+","+mapData.place.location.country;
+
+                            var start_time = $.format.date(mapData.start_time, "ddd dd");
+                            var end_time = $.format.date(mapData.end_time, "dd");
+
+                            htmlDatas += "<div class='loc col-xs-12 col-sm-12 col-md-12 col-lg-12 event-detail-box'  data-locid="+id+">";
+                            htmlDatas += "<h3>"+mapData.name+"</h3>";
+                            htmlDatas += "<h4>"+mapData.place.name+"</h4>";
+                            htmlDatas += "<h5><img src='assets/images/event-1.png' alt=''>"+start_time +" - "+ end_time +"</h5>";
+                            htmlDatas += "<h5> <img src='assets/images/event-2.png' alt=''>"+currentAddress+"</h5>";
+                            htmlDatas += "<div class='row link-wrapper'> <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'> <a class='learn-more' target='_blank' href='https://www.facebook.com/events/"+mapData.id+"/'>Learn More</a> </div>";
+                            htmlDatas += "<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'> <a class='get-derection' target='_blank' href='https://maps.google.com?daddr="+mapData.place.location.latitude+","+mapData.place.location.longitude+"'>Get Directions</a> </div> </div> </div>";
+
+                            var info = "";
+                            info += "<div class='loc col-xs-12 col-sm-12 col-md-12 col-lg-12 event-detail-box'  data-locid="+id+">";
+                            info += "<h3>"+mapData.name+"</h3>";
+                            info += "<h4>"+mapData.place.name+"</h4>";
+                            info += "<h5><img src='assets/images/event-1.png' alt=''>"+start_time +" - "+ end_time +"</h5>";
+                            info += "<h5> <img src='assets/images/event-2.png' alt=''>"+currentAddress+"</h5>";
+                            info += "<div class='row link-wrapper'> <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'> <a class='learn-more' target='_blank' href='https://www.facebook.com/events/"+mapData.id+"/'>Learn More</a> </div>";
+                            info += "<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'> <a class='get-derection' target='_blank' href='https://maps.google.com?daddr="+mapData.place.location.latitude+","+mapData.place.location.longitude+"'>Get Directions</a> </div> </div> </div>";
+
+
+                            var position = new google.maps.LatLng(mapData.place.location.latitude, mapData.place.location.longitude);
+                            bounds.extend(position);
+                            var marker     = '';
+                            var infowindow = '';
+
+                            /* =============== SET MARKER =============== */
+
+                            marker = new google.maps.Marker({
+                                map       : map,
+                                position  : position,
+                                //icon      : icon_img,
+                                title     : mapData.name,
+                                optimized : false,
+                                zIndex    : zindex
+                            });
+
+                            /* =============== SET INFO WINDOW =============== */
+
+                            infowindow = new google.maps.InfoWindow({
+                                content: '<div id="infowindow">'+ info +'</div>'
+                            });
+
+                            google.maps.event.addListener(marker, 'click', function() {
+                                clearinfowindow();
+                                infowindow.open(map,marker);
+                            });
+
+                            zindex                  = zindex + 1;
+                            marker.locid            = id;
+                            marker.infowindow       = infowindow;
+                            markers[markers.length] = marker;
+
+                        });
+
+                        if(!mapCount && lat != "" && lng != ""){
+                            var id = 20000;
+                            htmlDatas += "<div class='loc col-xs-12 col-sm-12 col-md-12 col-lg-12 event-detail-box'  data-locid="+id+">";
+                            htmlDatas += "<h3>No events found</h3>";
+                            htmlDatas += "</div>";
+
+                            var info = "";
+                            info += "<div class='loc col-xs-12 col-sm-12 col-md-12 col-lg-12 event-detail-box'  data-locid="+id+">";
+                            info += "<h3>No events found</h3>";
+                            info += "</div>";
+
+
+                            var position = new google.maps.LatLng(39.1143,-76.7800807);
+                            bounds.extend(position);
+                            var marker     = '';
+                            var infowindow = '';
+
+                            /* =============== SET MARKER =============== */
+
+                            marker = new google.maps.Marker({
+                                map       : map,
+                                position  : position,
+                                title     : "No events found",
+                                optimized : false,
+                                zIndex    : zindex
+                            });
+
+                            /* =============== SET INFO WINDOW =============== */
+
+                            infowindow = new google.maps.InfoWindow({
+                                content: '<div id="infowindow">'+ info +'</div>'
+                            });
+
+                            google.maps.event.addListener(marker, 'click', function() {
+                                clearinfowindow();
+                                infowindow.open(map,marker);
+                            });
+
+                            zindex                  = zindex + 1;
+                            marker.locid            = id;
+                            marker.infowindow       = infowindow;
+                            markers[markers.length] = marker;
+                        }
+
+                    $("#location").html( htmlDatas );
+                    map.fitBounds(bounds);
+                    map.panToBounds(bounds);
+
+                    google.maps.event.addListenerOnce(map, 'idle', function(){
+                        google.maps.event.trigger(map,'resize');
+                    });
+
+                }
+
+                initialize();
+
+
+                $(document).on("click",".loc",function() {
+
+                    var thisloc = $(this).data("locid");
+
+                    for(var i=0; i<markers.length; i++) {
+                        if(markers[i].locid == thisloc) {
+                            //get the latlong
+                            if(lastinfowindow instanceof google.maps.InfoWindow) {
+                                lastinfowindow.close();
+                            }
+
+                            map.panTo(markers[i].getPosition());
+                            markers[i].infowindow.open(map, markers[i]);
+                            lastinfowindow = markers[i].infowindow;
+                            map.setZoom(12);
+                            map.setCenter(markers[i].getPosition());
+                        }
+                    }
+
+                });
+
+
+                function clearinfowindow() {
+                    for(var i=0; i<markers.length; i++)
+                    {
+                        markers[i].infowindow.open(map, markers[i]);
+                        lastinfowindow = markers[i].infowindow;
+                        lastinfowindow.close();
+                    }
+                }
+
+            } /* end ajax success */
+        });
+    }
+
+</script>
+
+</html>

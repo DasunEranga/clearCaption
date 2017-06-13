@@ -1,0 +1,82 @@
+<header *ngIf="option">
+    <nav class="navbar navbar-default navbar-fixed-top main-navigation">
+        <div class="container-fluid top-header hidden-xs">
+            <div class="container">
+                <div class="phone-no-wrapper">
+                    <img [attr.src]='option.acf.contact_icon' alt="" />
+                    <p>
+                        Order by Phone <a href="tel:{{option.acf.contact_number}}">+1 866 246 7850</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container main-nav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+                <a class="navbar-brand" href="/"><img [attr.src]='option.acf.header_logo' alt="logo" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="main-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li [class.active]="currentURL == 'products'" class="dropdown products">
+                        <a href="">Products</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="products/home-phone"><img src="assets/images/temp/product-1.png" alt="logo" />Phone</a>
+                            </li>
+                            <li>
+                                <a href="products/mobile-phone"><img src="assets/images/temp/product-2.png" alt="logo" />Mobile</a>
+                            </li>
+                            <li>
+                                <a href="products/web-portal"><img src="assets/images/temp/product-3.png" alt="logo" />Web Services</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li [class.active]="currentURL =='how-it-works'"><a href="/how-it-works">How it Works</a></li>
+                    <li [class.active]="currentURL == 'professionals'|| currentURL == 'product-brochures'" class="dropdown">
+                        <a href="/professionals">Professionals</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Professionals</a>
+                        <ul class="dropdown-menu">
+                            <li class="hidden-lg"><a href="professionals">Professionals</a></li>
+                            <li><a href="/product-brochures">Download Brochure</a></li>
+                            <li><a href="/professionals">Download Professional<br/>Certification Form</a></li>
+                        </ul>
+                    </li>
+                    <li [class.active]="currentURL == 'support' || currentURL == 'user-guides' || currentURL == 'faq'" class="dropdown">
+                        <a href="/support">Support</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Support</a>
+                        <ul class="dropdown-menu">
+                            <li class="hidden-lg"><a href="support">Support</a></li>
+                            <li><a href="/faq">faq</a></li>
+                            <li><a href="/user-guides">user guides</a></li>
+                        </ul>
+                    </li>
+                    <li [class.active]="currentURL =='about-us' || currentURL =='find-local-event'  || currentURL =='careers' || currentURL =='contact-us' || currentURL =='press-releases' || currentURL =='news'|| currentURL =='leadership-team'" class="dropdown">
+                        <a href="/about-us">About Us</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li class="hidden-lg"><a href="/about-us">About Us</a></li>
+                            <li><a href="/news">News</a></li>
+                            <li><a href="/press-releases">Press Releases</a></li>
+                            <li><a href="/find-local-event">Find us at a Local Event </a></li>
+                            <li><a href="/leadership-team">Leadership Team</a></li>
+                            <li><a href="/careers">Careers</a></li>
+                            <li><a href="/contact-us">Contact Us</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/sign-me-up">Sign Me Up</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</header>

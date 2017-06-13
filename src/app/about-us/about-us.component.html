@@ -1,0 +1,72 @@
+<div class="main-wrapper about-us-wrapper container-fluid" *ngIf="page">
+    <section class="banner-wrapper row" [style.background-image]="'url(' + page.better_featured_image.media_details.sizes.large.source_url + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.title.rendered'></h2>
+        </div>
+    </section>
+    <app-sub-nav></app-sub-nav>
+    <section class="intro-wrapper container">
+        <div class="row">
+            <div class="col-sm-4 left-wrapper">
+                <h2 [innerHTML]='page.acf.making_communication_title'></h2>
+                <div [innerHTML]='page.acf.making_communication_content_left'></div>
+            </div>
+            <div class="col-sm-7 col-sm-offset-1 right-wrapper">
+                <div [innerHTML]='page.acf.making_communication_content_right'></div>
+            </div>
+        </div>
+    </section>
+    <section class="row innovation-history-wrapper">
+        <h2 [innerHTML]='page.acf.history_of_innovation_title'></h2>
+        <div class="history-wrapper container hidden-xs">
+            <div class="item-wrapper">
+                <div class="item" *ngFor="let t of page.acf.history_of_innovation_time_line">
+                    <div class="content-wrapper">
+                        <div class="content">
+                            <div class="bubble"><img [attr.src]='t.icon' alt="" /></div>
+                            <div class="year" [innerHTML]='t.year'></div>
+                            <div class="description" [innerHTML]='t.content'></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="history-wrapper-mobile container visible-xs">
+            <div class="item-wrapper">
+                <div class="item" *ngFor="let t of page.acf.history_of_innovation_time_line">
+                    <div class="content-wrapper">
+                        <div class="content">
+                            <div class="bubble"><img [attr.src]='t.icon' alt="" /></div>
+                            <div class="year" [innerHTML]='t.year'></div>
+                            <div class="description" [innerHTML]='t.content'></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--Partner logos-->
+    <section class="row as-seen-slider-wrapper" *ngIf="page.acf.about_us_partner_logo">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <p>As Seen in</p>
+                </div>
+                <div class="col-sm-10 as-seen-slider">
+                    <div *ngFor="let h of page.acf.about_us_partner_logo">
+                        <div class="logo text-center"><img [attr.src]='h.image' alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Talk to consultant-->
+    <app-talk-to-consultant></app-talk-to-consultant>
+
+
+</div>

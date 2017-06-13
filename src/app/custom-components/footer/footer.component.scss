@@ -1,0 +1,178 @@
+@import "../../../assets/scss/style.scss";
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+.footer-wrapper {
+  background-color: $blue-2;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  .logo-wrapper{
+    margin-bottom: 20px;
+    text-align: center;
+    img{
+      margin-bottom: 20px;
+    }
+    p{
+      text-align: center;
+      color: $blue-7;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+    }
+  }
+  ul{
+    padding: 0;
+    li{
+      &:first-of-type{
+          display: inline-block;
+          margin-bottom: 15px;
+          color: $green-1;
+          font-family: 'Poppins', sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          text-transform: uppercase;
+        a{
+          display: inline-block;
+          margin-bottom: 15px;
+          color: $green-1;
+          font-family: 'Poppins', sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          text-transform: uppercase;
+          &:hover{
+            color: $green-2;
+          }
+        }
+      }
+      a{
+        display: inline-block;
+        margin-bottom: 10px;
+        color: $white;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        &:hover{
+          color: $blue-7;
+        }
+      }
+    }
+  }
+  .social-meadia{
+    ul{
+      padding: 0;
+      li{
+        &:not(:first-of-type){
+          float: left;
+        }
+        &:not(:last-of-type){
+          margin-right: 30px;
+        }
+        &:first-of-type{
+          margin-right: 0;
+        }
+        a{
+          @include transitionElement(.3s, ease, all);
+          img{
+            &:hover{
+              opacity: .5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+  .footer-wrapper {
+    .logo-wrapper{
+      img{
+        width: 150px;
+      }
+    }
+    ul{
+      padding: 0;
+      li{
+        &:first-of-type{
+          a{
+            font-size: 12px;
+          }
+        }
+        a{
+          font-size: 12px;
+        }
+      }
+    }
+    .social-meadia{
+      ul{
+        padding: 0;
+        li{
+          &:not(:first-of-type){
+            float: none;
+            margin-left: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .footer-wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    > div{
+      padding: 0;
+    }
+    .logo-wrapper{
+      margin-bottom: 0;
+      text-align: left;
+      img{
+        margin-bottom: 40px;
+      }
+      p{
+        font-size: 12px;
+        line-height: 18px;
+        text-align: left;
+      }
+    }
+    ul{
+      padding: 0;
+      li{
+        &:first-of-type{
+          a{
+            margin-bottom: 15px;
+            font-size: 14px;
+          }
+        }
+        a{
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+    .social-meadia{
+      padding: 0;
+      ul{
+        padding: 0;
+        li{
+          &:not(:first-of-type){
+            float: left;
+            margin-left: 0;
+          }
+          &:not(:last-of-type){
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+  }
+}

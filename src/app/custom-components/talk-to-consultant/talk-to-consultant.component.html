@@ -1,0 +1,42 @@
+<div *ngIf="option">
+    <section>
+        <div class="row talk-to-consultant-wrapper" [style.background-image]="'url(' + option.acf.consultant_background_image + ')'" [ngStyle]="{ 'background-size': 'cover','background-repeat': 'no-repeat'} ">
+            <div class="container">
+                <h2 [innerHTML]='option.acf.consultant_title'></h2>
+                <p [innerHTML]='option.acf.consultant_content'></p>
+                <div class="row">
+                    <div class="col-md-7">
+                        <form class="consultant-form">
+                            <input type="hidden" name="formname" value="Talk to a ClearCaptions Consultant" />
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="firstName" class="sr-only">First Name</label>
+                                    <input name="firstName" type="text" class="form-control" id="firstName" placeholder="First Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="lastName" class="sr-only">Last Name</label>
+                                    <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="phoneNumber" class="sr-only">Phone Number</label>
+                                    <input name="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="emailAddress" class="sr-only">Email Address</label>
+                                    <input name="emailAddress" type="email" class="form-control" id="emailAddress" placeholder="Email Address">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <button class="consultantSubmit" type="submit" [innerHTML]='option.acf.consultant_button_text'></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

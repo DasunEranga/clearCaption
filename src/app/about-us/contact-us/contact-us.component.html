@@ -1,0 +1,74 @@
+<div class="main-wrapper contact-us-wrapper container-fluid" *ngIf="page">
+    <section class="banner-wrapper row" [style.background-image]="'url(' + page.better_featured_image.media_details.sizes.large.source_url + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.title.rendered'></h2>
+        </div>
+    </section>
+    <app-sub-nav></app-sub-nav>
+    <section class="content-wrapper row">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 form-wrapper">
+                    <h2 [innerHTML]='page.acf.about_us_contact_us_form_title'></h2>
+                    <form class="contactus-form">
+                        <input type="hidden" name="formname" value="Contact Us" />
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="firstName" class="sr-only">First Name</label>
+                                <input name="firstName" type="text" class="form-control" id="firstName" placeholder="First Name*">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="lastName" class="sr-only">Last Name</label>
+                                <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Last Name*">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="emailAddress" class="sr-only">Email Address</label>
+                                <input name="emailAddress" type="email" class="form-control" id="emailAddress" placeholder="Email Address*">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="phoneNumber" class="sr-only">Phone Number</label>
+                                <input name="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Phone Number*">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label for="department" class="sr-only">Department</label>
+                                <select name="department" class="form-control" id="department">
+                    <option>Department</option>
+                    <!--<option>department 2</option>
+                    <option>department 3</option>
+                    <option>department 4</option>-->
+                  </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <textarea name="message" class="form-control" rows="3" placeholder="Message..."></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <div class="g-recaptcha" [attr.data-sitekey]="grc_key"></div>
+                                <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
+                            </div>
+                            <div class="form-group col-lg-6 text-right">
+                                <input name="contactusSubmit" type="submit" value="Submit" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-5 col-sm-offset-1 contact-wrapper">
+                    <h2 [innerHTML]='page.acf.about_us_contact_us_right_side_section_title'></h2>
+                    <dl>
+                        <div *ngFor="let c of page.acf.about_us_contact_us_right_side_details">
+                            <dt [innerHTML]='c.title'></dt>
+                            <dd *ngFor="let te of c.description" [innerHTML]='te.text'></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

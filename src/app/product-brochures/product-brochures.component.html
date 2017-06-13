@@ -1,0 +1,16 @@
+<div class="main-wrapper product-brochures-wrapper container-fluid">
+    <section *ngIf="page" class="banner-wrapper row" [style.background-image]="'url(' + page.better_featured_image.media_details.sizes.large.source_url + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.title.rendered'></h2>
+        </div>
+    </section>
+    <section *ngIf="brochures" class="container product-brochures-items-wrapper">
+        <div class="row">
+            <a *ngFor="let b of brochures" class="col-sm-12 product-brochures-item" href="{{b.acf.brochures_button_url}}">
+                <h2 [innerHTML]='b.title.rendered'></h2>
+                <div [innerHTML]='b.content.rendered'></div>
+                <div [innerHTML]='b.acf.brochures_button_text' class="read-more"></div>
+            </a>
+        </div>
+    </section>
+</div>

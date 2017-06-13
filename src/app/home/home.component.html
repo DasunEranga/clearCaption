@@ -1,0 +1,216 @@
+<div *ngIf="page" class="main-wrapper home-wrapper container-fluid">
+    <section class="banner-wrapper row" [style.background-image]="'url(' + page.acf.front_background + ')'" style="background:no-repeat center; background-size: cover;">
+        <div class="col-sm-12 banner-content">
+            <div class="content">
+                <h2 [innerHTML]='page.acf.front_title'></h2>
+                <p [innerHTML]='page.acf.front_content'></p>
+                <a data-fancybox href="{{page.acf.home_banner_video_url}}" class="play-btn" *ngIf="vidbanner">
+                    <img [attr.src]='page.acf.home_banner_video_icon' alt="">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="row as-seen-slider-wrapper" *ngIf="page.acf.home_partner_logos">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <p>As Seen in</p>
+                </div>
+                <div class="col-sm-10 as-seen-slider">
+                    <div *ngFor="let h of page.acf.home_partner_logos">
+                        <div class="logo text-center"><img [attr.src]='h.logo.url' alt="" class="img-responsive"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row eligibility-wrapper">
+        <div class="container">
+            <div class="row img-right">
+                <div class="col-sm-6">
+                    <div class="img-content">
+                        <img [attr.src]='page.acf.home_eligibility_image' alt="">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="content row">
+                        <h3 [innerHTML]='page.acf.home_eligibility_section_title'></h3>
+                        <p [innerHTML]='page.acf.home_eligibility_section_content'></p>
+                        <a [innerHTML]='page.acf.home_eligibility_button_text' href="{{page.acf.home_eligibility_button_url}}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-wrapper row text-center" style="background: url(assets/images/temp/featuresbanner.png) no-repeat center; background-size: cover;">
+        <div class="container">
+            <div class="row">
+                <h2 [innerHTML]='page.acf.home_feature_content' class="title">
+                </h2>
+            </div>
+            <div class="row hidden-xs">
+                <div class="col-md-3" *ngFor="let i of page.acf.home_feature_blocks">
+                    <div class="content">
+                        <div class="image-wrapper">
+                            <img [attr.src]='i.icon' src="assets/images/temp/wifi.svg" alt="">
+                        </div>
+                        <h3 [innerHTML]='i.title'></h3>
+                        <div [innerHTML]='i.content'></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <a [innerHTML]='page.acf.home_feature_button_text' href="{{page.acf.home_feature_button_url}}" class="learn-btn"></a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--Testimonial-->
+    <section class="row services-wrapper">
+        <div class="container">
+            <div class="row">
+                <h2 [innerHTML]='page.acf.home_service_section_titlt' class="title"></h2>
+                <div class="col-sm-4" *ngFor="let j of page.acf.home_service_section_block">
+                    <a href="{{j.link_url}}" class="content">
+                        <div class="inner-content">
+                            <h3 [innerHTML]='j.sub_title'></h3>
+                            <div [innerHTML]='j.content'></div>
+                        </div>
+
+                        <p [innerHTML]='j.link' class="link"></p>
+                        <div class="img-wrapper">
+                            <img [attr.src]='j.icon' alt="">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row stay-connected-slider-wrapper" *ngIf="page.acf.home_testimonial_section">
+        <div class="container">
+            <div class="row">
+                <h2 [innerHTML]='page.acf.testimonial_title' class="title"></h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="stay-connected-slider visible-lg visible-md">
+                        <div class="item-slide" *ngFor="let item of page.acf.home_testimonial_section">
+                            <div class="content-wrapper">
+                                <div class="left-wrapper">
+                                    <div class="item-content">
+                                        <div class="content">
+                                            <p [innerHTML]='item.large_content'></p>
+                                            <h5 [innerHTML]='item.large_author'></h5>
+                                            <h6 [innerHTML]='item.large_author_location'></h6>
+                                        </div>
+                                        <a [innerHTML]='item.large_button_text' data-fancybox href="{{item.large_button_url}}" class="vid-btn"></a>
+                                        <img [attr.src]='item.large_image' alt="">
+                                    </div>
+                                </div>
+                                <div class="right-wrapper">
+                                    <div class="item-content">
+                                        <div class="content">
+                                            <p [innerHTML]='item.small_1_content'></p>
+                                            <h5 [innerHTML]='item.small_1_author'></h5>
+                                            <h6 [innerHTML]='item.small_1_author_location'></h6>
+                                        </div>
+                                        <img [attr.src]='item.Small_1_image' alt="">
+                                    </div>
+
+                                    <div class="item-content">
+                                        <div class="content">
+                                            <p [innerHTML]='item.small_2_content'></p>
+                                            <h5 [innerHTML]='item.small_2_author'></h5>
+                                            <h6 [innerHTML]='item.small_2_author_location'></h6>
+                                        </div>
+                                        <img [attr.src]='item.Small_2_image' alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stay-connected-slider-mobile hidden-lg hidden-md">
+                        <div class="item-slide" *ngFor="let item of getSmallItems(page.acf.home_testimonial_section)">
+                            <div class="item-content">
+                                <div class="content">
+                                    <p [innerHTML]='item.content'></p>
+                                    <h5 [innerHTML]='item.author'></h5>
+                                    <h6 [innerHTML]='item.location'></h6>
+                                </div>
+                                <a [innerHTML]='item.button_text' data-fancybox href="{{item.button_url}}" class="vid-btn"></a>
+                                <img [attr.src]='item.image' alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Talk to consultant-->
+    <app-talk-to-consultant></app-talk-to-consultant>
+
+    <section class="news-items-wrapper" *ngIf="page.acf.home_news_section_title">
+        <div class="container">
+            <h2 [innerHTML]='page.acf.home_news_section_title'></h2>
+            <div class="row">
+                <div class="news-items-slider" *ngIf="news">
+                    <div class="slide" *ngFor="let item of news">
+                        <a href="news/{{ item.slug }}">
+                            <div class="img-wrapper" [style.background-image]="'url(' + item.acf.image + ')'" [ngStyle]="{ 'background-size':
+      'cover','background-repeat': 'no-repeat'} ">
+                            </div>
+                            <div [innerHTML]='item.title.rendered' class="content"></div>
+                            <div [innerHTML]='item.acf.date' class="date"></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sign-me-up-box">
+        <p>Sign me up</p>
+    </div>
+
+    <div class="sign-me-up-form">
+        <h2>Contact ClearCaptionsâ„¢</h2>
+        <form class="contact-form">
+            <input type="hidden" name="formname" value="Contact ClearCaptions" />
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="firstName" class="sr-only">First Name</label>
+                    <input name="firstName" type="text" class="form-control" id="firstName" placeholder="First Name*">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="lastName" class="sr-only">Last Name</label>
+                    <input name="lastName" type="text" class="form-control" id="lastName" placeholder="Last Name*">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="emailAddress" class="sr-only">Email Address</label>
+                    <input name="emailAddress" type="email" class="form-control" id="emailAddress" placeholder="Email Address*">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="phoneNumber" class="sr-only">Phone Number</label>
+                    <input name="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Phone Number*">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <button class="contactSubmit" type="submit">Sign me up now</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

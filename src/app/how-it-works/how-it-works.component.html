@@ -1,0 +1,91 @@
+<div class="main-wrapper container-fluid how-it-work-wrapper" *ngIf="page">
+
+    <section class="banner-wrapper row" [style.background-image]="'url(' + page.acf.how_it_work_banner_image + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.acf.how_it_work_banner_title'></h2>
+        </div>
+    </section>
+
+    <section class="sub-nav how-it-work-sub-nav">
+        <ul>
+            <li class="active"><a href="#ccWork" data-location="ccWork">How ClearCaptions Works</a></li>
+            <li><a href="#ccFree" data-location="ccFree">Why is ClearCaptions Free</a></li>
+            <li><a href="#ccEligible" data-location="ccEligible">Am I Eligible</a></li>
+            <li><a href="#ccCertify" data-location="ccCertify">Who can Certify Me</a></li>
+        </ul>
+    </section>
+
+    <section class="tab-content-wrapper">
+        <div class="container-fluid">
+            <div class="row item-wrapper video-wrapper" id="ccWork">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 [innerHTML]='page.acf.how_it_work_tab_1_content_title'></h3>
+                            <div [innerHTML]='page.acf.how_it_work_tab_1_content'>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 video">
+                            <a data-fancybox href="https://www.youtube.com/watch?v=TOsGAxFcYls">
+                                <img [attr.src]='page.acf.how_it_work_tab_1_video_placeholder_image' alt="">
+                                <span class="play-btn">
+                  <img src="assets/images/play-btn.svg" alt=""/>
+                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row item-wrapper" id="ccFree" [style.background-image]="'url(' + page.acf.how_it_work_tab_2_image + ')'" style=" background-position: top left; background-repeat: no-repeat; background-size: contain;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-6 col-sm-12">
+                            <h3 [innerHTML]='page.acf.how_it_work_tab_2_content_title'></h3>
+                            <div [innerHTML]='page.acf.how_it_work_tab_2_content'></div>
+                            <a href="{{page.acf.how_it_work_tab_2_button_url}}" class="btn" [innerHTML]='page.acf.how_it_work_tab_2_button_text' *ngIf="page.acf.how_it_work_tab_2_button_text"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row item-wrapper" id="ccEligible" [style.background-image]="'url(' + page.acf.how_it_work_tab_3_image + ')'" style=" background-position: top right; background-repeat: no-repeat; background-size: contain;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <h3 [innerHTML]='page.acf.how_it_work_tab_3_content_title'></h3>
+                            <div [innerHTML]='page.acf.how_it_work_tab_3_content'>
+                            </div>
+                            <a href="{{page.acf.how_it_work_tab_3_button_url}}" class="btn primaryButton" [innerHTML]='page.acf.how_it_work_tab_3_button_text' *ngIf="page.acf.how_it_work_tab_3_button_text"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row item-wrapper" id="ccCertify" [style.background-image]="'url(' + page.acf.how_it_work_tab_4_image + ')'" style=" background-position: top left; background-repeat: no-repeat; background-size: contain;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-6 col-sm-12">
+                            <h3 [innerHTML]='page.acf.how_it_work_tab_4_content_title'></h3>
+                            <div [innerHTML]='page.acf.how_it_work_tab_4_content'></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="get-start-wrapper text-center">
+        <div class="container-fluid get-start-cont-wrapper" [style.background-image]="'url(' + page.acf.how_it_work_get_started_background_image + ')'" style="background-repeat: no-repeat; background-size: cover;">
+            <div class="col-xs-12">
+                <h2 [innerHTML]='page.acf.how_it_work_get_started_title'></h2>
+                <div [innerHTML]='page.acf.how_it_work_get_started_content'></div>
+                <a href="{{page.acf.how_it_work_get_started_button_url}}" class="btn primaryButton" [innerHTML]='page.acf.how_it_work_get_started_button_text'></a>
+            </div>
+
+        </div>
+    </section>
+
+</div>

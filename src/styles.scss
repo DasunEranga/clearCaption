@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+.slick-prev:before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 60px;
+    background: url(..assets/images/arrow-left.png) no-repeat center;
+}
+
+.slick-prev {
+    background: red;
+}
+
+body {
+    background: red;
+}

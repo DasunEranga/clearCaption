@@ -1,0 +1,8 @@
+<div class="main-wrapper home-wrapper container-fluid">
+    <section *ngIf="page" class="banner-wrapper row" [style.background-image]="'url(' + page.better_featured_image.media_details.sizes.large.source_url + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.title.rendered'></h2>
+        </div>
+    </section>
+    <app-talk-to-consultant></app-talk-to-consultant>
+</div>

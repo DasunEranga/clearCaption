@@ -1,0 +1,495 @@
+@mixin custom-padding($left, $right) {
+  padding-left: $left;
+  padding-right: $right;
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin custom-border-radius($radius-top, $radius-right, $radius-bottom, $radius-left) {
+  -moz-border-radius: $radius-top $radius-right $radius-bottom $radius-left;
+  -webkit-border-radius: $radius-top $radius-right $radius-bottom $radius-left;
+  border-radius: $radius-top $radius-right $radius-bottom $radius-left;
+}
+
+@mixin custom-button($radius) {
+}
+
+//@include custom-box-shadow(2px 2px 20px 0px, rgba(0, 0, 0, .6));
+@mixin custom-box-shadow($boxShadow, $color) {
+  -webkit-box-shadow: $boxShadow $color;
+  -moz-box-shadow: $boxShadow $color;
+  box-shadow: $boxShadow $color;
+}
+
+@mixin no-box-shadow {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+
+@mixin custom-font($fontsize, $fontfamily) {
+  font-size: $fontsize;
+  font-family: $fontfamily;
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin transitionElement($time, $type, $element) {
+  -webkit-transition: $time $type $element;
+  -moz-transition: $time $type $element;
+  -transition: $time $type $element;
+}
+
+// Header section
+@mixin menulinkcommon($padding, $font-family, $color) {
+  padding: ($padding);
+  color: ($color);
+  font-family: ($font-family);
+}
+
+@mixin clearfix {
+  display: inline-block;
+  :after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+//Typography
+@mixin heading1() {
+  font-weight: 500;
+  letter-spacing: -1px;
+  color: $blue-2;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+  }
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    font-size: 32px;
+    line-height: 46px;
+  }
+}
+
+@mixin heading2() {
+  color: $blue-2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 26px;
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+  }
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    font-size: 32px;
+    line-height: 46px;
+  }
+}
+
+@mixin heading3() {
+  color: $blue-5;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin heading4() {
+  color: $blue-2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+@mixin highlightParagraph() {
+  color: $brown-1;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+@mixin quote() {
+  color: $blue-2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+@mixin paragraph() {
+  color: $blue-2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+// custom paragraph
+@mixin paragraph1() {
+  color: $blue-6;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+@mixin paragraphBullet() {
+  color: $blue-6;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+@mixin paragraphLink() {
+  color: $red-1;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+@mixin highlightDateTag() {
+  color: $red-1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@mixin menuItem() {
+  color: $brown-1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  &:hover {
+    > a {
+      color: $red-1;
+    }
+  }
+}
+
+@mixin companyTabActive() {
+  color: $blue-1;
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin companyTabNormal() {
+  color: $brown-2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin casestudyHeading() {
+  //  color: #ffffff;
+  //  font-family: "Proxima Nova";
+  //  font-size: 18px;
+  //  font-weight: 700;
+  //  text-transform: uppercase;
+}
+
+@mixin footerHeading() {
+  color: $green-1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin pageHeading() {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  color: $white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: -1px;
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+  }
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    font-size: 54px;
+    letter-spacing: -2px;
+  }
+}
+
+@mixin pageHeadweDesctiption() {
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  color: $white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+  }
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+  }
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    color: $white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 42px;
+  }
+}
+
+//Buttons
+@mixin primaryButton($padding) {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: $green-1;
+  color: $white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  outline: 0;
+  @include transitionElement(.5s, ease, background);
+  @include no-box-shadow();
+  &:hover {
+    background-color: $green-2;
+  }
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 15px;
+  }
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    padding: $padding;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+}
+
+@mixin secondaryButton($padding) {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background-color: $blue-1;
+  color: $white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  @include transitionElement(.5s, ease, background);
+  &:hover {
+    background-color: $blue-2;
+  }
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 15px;
+  }
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    padding: $padding;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+}
+
+//@mixin smallButton($padding) {
+//    display: inline-block;
+//    padding: 12px 20px;
+//    border-radius: 6px;
+//    border: none;
+//    background-color: $green-1;
+//    color: $white;
+//    font-family: 'Poppins', sans-serif;
+//    font-size: 12px;
+//    line-height: 12px;
+//    font-weight: 700;
+//    text-transform: uppercase;
+//    outline: 0;
+//    @include transitionElement(.5s, ease, all);
+//    @include no-box-shadow();
+//    &:hover,
+//    &:active,
+//    &:visited
+//    {
+//        background-color: $green-2;
+//    }
+//}
+
+@mixin smallButton($padding) {
+  display: inline-block;
+  padding: $padding;
+  border-radius: 10px;
+  border: 1px solid $green-1;
+  background-color: $white;
+  color: $green-1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  outline: 0;
+  @include transitionElement(.5s, ease, all);
+  @include no-box-shadow();
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    border: 1px solid transparent;
+    background-color: $green-1;
+    color: $white;
+  }
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 15px;
+  }
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    padding: $padding;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 15px;
+  }
+}
+
+@mixin secondaryButton($padding) {
+  display: inline-block;
+  padding: $padding;
+  border-radius: 10px;
+  background-color: $blue-1;
+  color: $white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  @include transitionElement(.5s, ease, all);
+  &:hover {
+    background-color: $blue-2;
+  }
+}
+
+//pagination
+@mixin paginationBtn() {
+  width: 35px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid $green-1;
+  background-color: $white;
+  color: $green-1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $green-1;
+  }
+  &.active {
+    background-color: $green-1;
+  }
+}
+
+@mixin paginationArrowBtn() {
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid $gray-4;
+  color: $gray-4;
+  &:hover {
+    background-color: $green-1;
+    color: $white;
+  }
+  &.active {
+    background-color: $green-1;
+    color: $white;
+  }
+}
+
+//Text links
+@mixin linkNormal() {
+  display: inline-block;
+  color: $green-1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  @include transitionElement(.5s, ease, all);
+  &:hover {
+    color: $green-2;
+  }
+}
+
+@mixin linkSmall() {
+  display: inline-block;
+  color: $green-1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  @include transitionElement(.5s, ease, all);
+  &:hover {
+    color: $green-2;
+  }
+}
+
+// Form Controls
+@mixin inputField {
+  margin-bottom: 5px;
+  height: 45px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: $white;
+  color: $gray-9;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  font-family: 'Raleway', sans-serif;
+}

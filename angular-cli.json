@@ -1,0 +1,84 @@
+{
+  "project": {
+    "version": "1.0.0-alpha.universal.3",
+    "name": "clear-caption"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist/client",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "client.ts",
+      "nodeMain": "server.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "app",
+      "mobile": false,
+      "universal": true,
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/slick-carousel/slick/slick.css",
+        "../node_modules/slick-carousel/slick/slick-theme.css",
+        "../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css",        
+        "../src/assets/scss/style.scss",        
+        "./src/styles.scss"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/slick-carousel/slick/slick.min.js",
+        "../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
+        "../node_modules/scrollreveal/dist/scrollreveal.min.js",
+        "../src/assets/js/jquery.form.min.js",
+        "../node_modules/jquery-validation/dist/jquery.validate.min.js",
+        "custom.js"
+      ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "../src/assets/scss/style.scss"
+        ]
+      },
+      "environments": {
+        "source": "environments/environment.ts",
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      },
+      "webpackCustom": {
+        "client": "webpack.client.ts",
+        "server": "webpack.server.ts"
+      }
+    }
+  ],
+  "addons": [],
+  "packages": [],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "prefixInterfaces": false,
+    "inline": {
+      "style": false,
+      "template": false
+    },
+    "spec": {
+      "class": false,
+      "component": true,
+      "directive": true,
+      "module": false,
+      "pipe": true,
+      "service": true
+    }
+  }
+}

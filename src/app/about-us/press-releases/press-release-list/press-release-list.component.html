@@ -1,0 +1,18 @@
+<div class="main-wrapper press-releases-wrapper container-fluid">
+    <section *ngIf="page" class="banner-wrapper row" [style.background-image]="'url(' + page.better_featured_image.media_details.sizes.large.source_url + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="banner-content">
+            <h2 [innerHTML]='page.title.rendered'></h2>
+        </div>
+    </section>
+    <app-sub-nav></app-sub-nav>
+    <section *ngIf="press" class="container press-releases-items-wrapper">
+        <div class="row">
+            <a *ngFor="let p of press" class="col-sm-12 press-release-item" href="/press-releases/{{p.slug}}">
+                <h2 [innerHTML]='p.title.rendered'></h2>
+                <h4 [innerHTML]='p.acf.press_releases_date'></h4>
+                <div [innerHTML]='p.acf.press_releases_content'></div>
+                <div [innerHTML]='p.acf.press_releases_button_text' class="read-more"></div>
+            </a>
+        </div>
+    </section>
+</div>

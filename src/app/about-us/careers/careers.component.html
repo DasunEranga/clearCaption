@@ -1,0 +1,72 @@
+<div class="main-wrapper careers-wrapper container-fluid" *ngIf="page">
+    <section class="banner-wrapper row" [style.background-image]="'url(' + page.acf.careers_banner_image + ')'" style="background-size: cover; background-repeat: no-repeat;">
+
+        <div class="container">
+            <div class="banner-content">
+                <h2 [innerHTML]='page.acf.careers_banner_title'></h2>
+                <div class="btn-wrapper">
+                    <h5 [innerHTML]='page.acf.careers_banner_content'></h5>
+                    <button [innerHTML]='page.acf.careers_banner_button_text'></button>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <app-sub-nav></app-sub-nav>
+    <section class="container good-to-be-true-wrapper">
+        <h2 [innerHTML]='page.acf.careers_benefit_section_title'></h2>
+        <p [innerHTML]='page.acf.careers_benefit_section_content'></p>
+        <div class="items-wrapper row">
+            <div class="col-sm-3 item" *ngFor="let b of page.acf.careers_benefit">
+                <div class="image-wrapper">
+                    <img [attr.src]='b.image' alt="" />
+                    <div class="content">
+                        <ul>
+                            <li *ngFor="let f of b.features" [innerHTML]='f.feature'></li>
+                        </ul>
+                    </div>
+                </div>
+                <p [innerHTML]='b.title'></p>
+            </div>
+        </div>
+    </section>
+    <section class="row field-of-work-wrapper" [style.background-image]="'url(' + page.acf.careers_field_background_image + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="container">
+            <h2 [innerHTML]='page.acf.careers_field_title'></h2>
+            <h3 [innerHTML]='page.acf.careers_field_content'></h3>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="container">
+                <div class="row job-items-wrapper">
+                    <div class="col-sm-4 job-item" *ngFor="let f of page.acf.field">
+                        <h4 [innerHTML]='f.title'></h4>
+                        <div [innerHTML]='f.content'></div>
+                        <a href="{{f.link_url}}" [innerHTML]='f.link_text'></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row create-profile-wrapper">
+        <div class="hidden-sm  col-sm-6" [style.background-image]="'url(' + page.acf.careers_create_profile_image + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        </div>
+
+        <div class="container">
+            <div class="col-md-6 pull-right inner-content">
+                <h2 [innerHTML]='page.acf.careers_create_profile_title'></h2>
+                <div [innerHTML]='page.acf.careers_create_profile_content'></div>
+                <a href="{{page.acf.careers_create_profile_button_url}}" [innerHTML]='page.acf.careers_create_profile_button_text'></a>
+            </div>
+        </div>
+    </section>
+    <!--<section class="row refer-friend-wrapper" [style.background-image]="'url(' + page.acf.careers_refer_friend_background + ')'" style="background-size: cover; background-repeat: no-repeat;">
+        <div class="col-sm-12">
+            <h3 [innerHTML]='page.acf.careers_refer_friend_tag'></h3>
+            <h2 [innerHTML]='page.acf.careers_refer_friend_title'></h2>
+            <h4 [innerHTML]='page.acf.careers_refer_friend_content'></h4>
+            <a href="{{page.acf.careers_refer_friend_button_url}}" [innerHTML]='page.acf.careers_refer_friend_button_text'></a>
+        </div>
+    </section>-->
+</div>

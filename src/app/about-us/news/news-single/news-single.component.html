@@ -1,0 +1,32 @@
+<div class="main-wrapper news-wrapper container-fluid row" *ngIf="news">
+    <section class=" news-inner-banner-wrapper row ">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 banner-content">
+                <h2 [innerHTML]='news.title.rendered'></h2>
+                <p [innerHTML]='news.acf.date'></p>
+            </div>
+        </div>
+    </section>
+    <section class="go-back">
+        <div class="container">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <a href="/news">
+                    <img src="assets/images/goback.png" alt="" />Go Back to News
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=clearcaptions.com/news/{{ news.slug }}" target="_blank"><img src="assets/images/share-fb.png" alt="" /></a>
+                <a href="https://twitter.com/home?status=clearcaptions.com/news/{{ news.slug }}"><img src="assets/images/share-twitter.png" alt="" /></a>
+            </div>
+        </div>
+    </section>
+    <section class="new-inner-content ">
+        <div class="container">
+            <div class="col-xs-12  content">
+                <div [innerHTML]='news.content.rendered '></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!--<pre>{{ post | json }}</pre>-->
